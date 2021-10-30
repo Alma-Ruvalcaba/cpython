@@ -1,0 +1,26 @@
+#Formulas
+def formula(tasa_interes, deuda, pago, cargos):
+    tasa_interes = tasa_interes/100
+    interes_mensual = tasa_interes/12
+    deuda_recalculada = (deuda-pago)*(1+interes_mensual)
+    nueva_deuda = deuda_recalculada+cargos
+    return nueva_deuda
+
+
+#Datos de usuario
+print("Hola, buen día estimado usuario. Por favor ingrese los datos solicitados.")
+
+def resumen():
+    n_tarjeta= int(input("Ingrese los digitos de  su tarjeta: "))
+    tasa_interes= float(input("Ingrese la tasa de interés: "))
+    deuda= float(input("Ingrese el monto de su deuda:$ "))
+    pago= float(input("Ingrese su monto de pago:$ "))
+    if (pago >= deuda):
+        print ("Su pago no puede ser igual al monto de su deuda")
+        return 
+    cargos= float(input("Ingrese el monto de sus nuevos cargos:$ "))
+    prox_pago= formula(tasa_interes, deuda, pago, cargos)
+    
+    print("\n Resumen de su cuenta \n Su tarjeta: {}\n Con tasa de interés: {}\n Su deuda: ${}\n Su pago: ${}\n Los nuevos cargos por: ${}\n Monto del próximo pago: ${}".format(n_tarjeta, tasa_interes, deuda, pago, cargos, prox_pago))
+
+resumen()
